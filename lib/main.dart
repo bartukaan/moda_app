@@ -1,5 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'detay.dart';
 
 void main() => runApp(ModaApp());
 
@@ -18,10 +19,35 @@ class AnaSayfa extends StatefulWidget {
   _AnaSayfaState createState() => _AnaSayfaState();
 }
 
-class _AnaSayfaState extends State<AnaSayfa> {
+class _AnaSayfaState extends State<AnaSayfa> with SingleTickerProviderStateMixin {
+
+  TabController tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    tabController = TabController(length: 4,vsync: this);
+  }
+
+  @override
+  void dispose() {
+    tabController.dispose();
+    super.dispose();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: Material(
+        color: Colors.white,
+        child: TabBar(indicatorColor: Colors.pink.shade700,controller: tabController,tabs: [
+          Tab(icon: Icon(Icons.more,color: Colors.black,size:30 ),),
+          Tab(icon: Icon(Icons.play_arrow,color: Colors.black,size:30 ),),
+          Tab(icon: Icon(Icons.navigation,color: Colors.black,size:30 ),),
+          Tab(icon: Icon(Icons.supervised_user_circle,color: Colors.black,size:30 ),),
+        ],),
+      ),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -140,14 +166,23 @@ class _AnaSayfaState extends State<AnaSayfa> {
                     ),
                     Row(
                       children: [
-                        Container(
-                          height: 310,
-                          width: (MediaQuery.of(context).size.width - 100) / 2,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(5),
-                              image: DecorationImage(
-                                  image: AssetImage("assets/modelgrid1.jpeg"),
-                                  fit: BoxFit.cover)),
+                        InkWell(onTap: (
+                            ){
+                          Navigator.of(context).push(MaterialPageRoute(builder:(context)=>Detay(imgPath:'assets/modelgrid1.jpeg')));
+                        },
+
+                          child: Hero(
+                            tag: 'assets/modelgrid1.jpeg',
+                            child: Container(
+                              height: 310,
+                              width: (MediaQuery.of(context).size.width - 100) / 2,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  image: DecorationImage(
+                                      image: AssetImage("assets/modelgrid1.jpeg"),
+                                      fit: BoxFit.cover)),
+                            ),
+                          ),
                         ),
                         SizedBox(
                           width: 30,
@@ -253,6 +288,7 @@ class _AnaSayfaState extends State<AnaSayfa> {
               ),
             ),
           ),
+        
         ],
       ),
     );
