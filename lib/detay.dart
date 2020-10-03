@@ -16,7 +16,7 @@ class _DetayState extends State<Detay> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Hero(
-        tag: 'assets/modelgrid1.jpeg',
+        tag: widget.imgPath,
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,

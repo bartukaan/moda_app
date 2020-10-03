@@ -19,14 +19,14 @@ class AnaSayfa extends StatefulWidget {
   _AnaSayfaState createState() => _AnaSayfaState();
 }
 
-class _AnaSayfaState extends State<AnaSayfa> with SingleTickerProviderStateMixin {
-
+class _AnaSayfaState extends State<AnaSayfa>
+    with SingleTickerProviderStateMixin {
   TabController tabController;
 
   @override
   void initState() {
     super.initState();
-    tabController = TabController(length: 4,vsync: this);
+    tabController = TabController(length: 4, vsync: this);
   }
 
   @override
@@ -35,18 +35,30 @@ class _AnaSayfaState extends State<AnaSayfa> with SingleTickerProviderStateMixin
     super.dispose();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: Material(
         color: Colors.white,
-        child: TabBar(indicatorColor: Colors.pink.shade700,controller: tabController,tabs: [
-          Tab(icon: Icon(Icons.more,color: Colors.black,size:30 ),),
-          Tab(icon: Icon(Icons.play_arrow,color: Colors.black,size:30 ),),
-          Tab(icon: Icon(Icons.navigation,color: Colors.black,size:30 ),),
-          Tab(icon: Icon(Icons.supervised_user_circle,color: Colors.black,size:30 ),),
-        ],),
+        child: TabBar(
+          indicatorColor: Colors.pink.shade700,
+          controller: tabController,
+          tabs: [
+            Tab(
+              icon: Icon(Icons.more, color: Colors.black, size: 30),
+            ),
+            Tab(
+              icon: Icon(Icons.play_arrow, color: Colors.black, size: 30),
+            ),
+            Tab(
+              icon: Icon(Icons.navigation, color: Colors.black, size: 30),
+            ),
+            Tab(
+              icon: Icon(Icons.supervised_user_circle,
+                  color: Colors.black, size: 30),
+            ),
+          ],
+        ),
       ),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -71,7 +83,7 @@ class _AnaSayfaState extends State<AnaSayfa> with SingleTickerProviderStateMixin
         padding: EdgeInsets.only(top: 10),
         children: [
           Container(
-          //  color: Colors.blue,
+            //  color: Colors.blue,
             height: 150,
             width: double.infinity,
             child: ListView(
@@ -98,7 +110,7 @@ class _AnaSayfaState extends State<AnaSayfa> with SingleTickerProviderStateMixin
             child: Material(
               borderRadius: BorderRadius.circular(16),
               elevation: 4,
-             // color: Colors.blue.shade300,
+              // color: Colors.blue.shade300,
               child: Container(
                 height: 600,
                 width: double.infinity,
@@ -166,20 +178,23 @@ class _AnaSayfaState extends State<AnaSayfa> with SingleTickerProviderStateMixin
                     ),
                     Row(
                       children: [
-                        InkWell(onTap: (
-                            ){
-                          Navigator.of(context).push(MaterialPageRoute(builder:(context)=>Detay(imgPath:'assets/modelgrid1.jpeg')));
-                        },
-
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) =>
+                                    Detay(imgPath: 'assets/modelgrid1.jpeg')));
+                          },
                           child: Hero(
                             tag: 'assets/modelgrid1.jpeg',
                             child: Container(
                               height: 310,
-                              width: (MediaQuery.of(context).size.width - 100) / 2,
+                              width:
+                                  (MediaQuery.of(context).size.width - 100) / 2,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(5),
                                   image: DecorationImage(
-                                      image: AssetImage("assets/modelgrid1.jpeg"),
+                                      image:
+                                          AssetImage("assets/modelgrid1.jpeg"),
                                       fit: BoxFit.cover)),
                             ),
                           ),
@@ -189,29 +204,52 @@ class _AnaSayfaState extends State<AnaSayfa> with SingleTickerProviderStateMixin
                         ),
                         Column(
                           children: [
-                            Container(
-                              height: 150,
-                              width:
-                                  (MediaQuery.of(context).size.width - 100) / 2,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(5),
-                                  image: DecorationImage(
-                                      image:
-                                          AssetImage("assets/modelgrid2.jpeg"),
-                                      fit: BoxFit.cover)),
+                            InkWell(
+                              onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => Detay(
+                                        imgPath: 'assets/modelgrid2.jpeg')));
+                              },
+                              child: Hero(
+                                tag: 'assets/modelgrid2.jpeg',
+                                child: Container(
+                                  height: 150,
+                                  width:
+                                      (MediaQuery.of(context).size.width - 100) /
+                                          2,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                              "assets/modelgrid2.jpeg"),
+                                          fit: BoxFit.cover)),
+                                ),
+                              ),
                             ),
                             SizedBox(
                               height: 10,
                             ),
-                            Container(
-                              height: 150,
-                              width:
-                                  (MediaQuery.of(context).size.width - 100) / 2,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                image: DecorationImage(
-                                    image: AssetImage("assets/modelgrid3.jpeg"),
-                                    fit: BoxFit.cover),
+                            InkWell(
+                              onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => Detay(
+                                        imgPath: 'assets/modelgrid3.jpeg')));
+                              },
+                              child: Hero(
+                                tag: 'assets/modelgrid3.jpeg',
+                                child: Container(
+                                  height: 150,
+                                  width:
+                                      (MediaQuery.of(context).size.width - 100) /
+                                          2,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(5),
+                                    image: DecorationImage(
+                                        image:
+                                            AssetImage("assets/modelgrid3.jpeg"),
+                                        fit: BoxFit.cover),
+                                  ),
+                                ),
                               ),
                             ),
                           ],
@@ -264,23 +302,60 @@ class _AnaSayfaState extends State<AnaSayfa> with SingleTickerProviderStateMixin
                         ),
                       ],
                     ),
-                    SizedBox(height: 20,),
+                    SizedBox(
+                      height: 20,
+                    ),
                     Divider(),
-                    SizedBox(height: 20,),
+                    SizedBox(
+                      height: 20,
+                    ),
                     Row(
                       children: [
-                        Icon(Icons.reply_all,color: Colors.brown.withOpacity(0.4),size: 30,),
-                        SizedBox(width: 10,),
-                        Text("1.7k",style: TextStyle(fontFamily: 'Montserrat',fontSize: 16),),
-                        SizedBox(width: 20,),
-                        Icon(Icons.comment,color: Colors.brown.withOpacity(0.4),size: 30,),
-                        SizedBox(width: 10,),
-                        Text("325",style: TextStyle(fontFamily: 'Montserrat',fontSize: 16),),
-                        SizedBox(width: 280,),
-                        Icon(Icons.favorite,color: Colors.red,size: 30,),
-                        SizedBox(width: 10,),
-                        Text("1.7k",style: TextStyle(fontFamily: 'Montserrat',fontSize: 16),),
-
+                        Icon(
+                          Icons.reply_all,
+                          color: Colors.brown.withOpacity(0.4),
+                          size: 30,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          "1.7k",
+                          style:
+                              TextStyle(fontFamily: 'Montserrat', fontSize: 16),
+                        ),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        Icon(
+                          Icons.comment,
+                          color: Colors.brown.withOpacity(0.4),
+                          size: 30,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          "325",
+                          style:
+                              TextStyle(fontFamily: 'Montserrat', fontSize: 16),
+                        ),
+                        SizedBox(
+                          width: 280,
+                        ),
+                        Icon(
+                          Icons.favorite,
+                          color: Colors.red,
+                          size: 30,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          "1.7k",
+                          style:
+                              TextStyle(fontFamily: 'Montserrat', fontSize: 16),
+                        ),
                       ],
                     )
                   ],
@@ -288,7 +363,6 @@ class _AnaSayfaState extends State<AnaSayfa> with SingleTickerProviderStateMixin
               ),
             ),
           ),
-        
         ],
       ),
     );
